@@ -49,7 +49,7 @@ public class LdapLogin {
 		
        
         DirContext ctx = null;
-        logger.log(String.format("ANTES conexion LDAP"));
+        logger.log("ANTES conexion LDAP".formatted());
         try {
             ctx = new InitialDirContext(env);
             logger.log("Conexion correcta al LDAP ");
@@ -68,7 +68,7 @@ public class LdapLogin {
                 Attribute memberOf = attrs.get("memberOf");
                 if (memberOf != null) {
                     for (int i = 0; i < memberOf.size(); i++) {
-                    	   logger.log(String.format("miembro '%s' en LDAP", memberOf.get(i).toString()));
+                    	   logger.log("miembro '%s' en LDAP".formatted(memberOf.get(i).toString()));
                         if (memberOf.get(i).toString().contains(GROUP_DN))
                         {
                             inGroup = true;
@@ -86,10 +86,10 @@ public class LdapLogin {
             return AuthResult.SUCCESS;
 
         } catch (AuthenticationException e) {
-        	logger.log(String.format("INVALIDO: " + e.getMessage()));
+        	logger.log(("INVALIDO: " + e.getMessage()).formatted());
             return AuthResult.INVALID_CREDENTIALS;
         } catch (Exception e) {
-        	 logger.log(String.format("Error de conexión LDAP: " + e.getMessage()));
+        	 logger.log(("Error de conexión LDAP: " + e.getMessage()).formatted());
             return AuthResult.ERROR_CONNECTING;
         } finally {
             try {
