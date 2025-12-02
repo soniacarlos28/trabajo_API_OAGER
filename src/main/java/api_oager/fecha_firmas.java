@@ -120,8 +120,8 @@ public class fecha_firmas {
             wb = WorkbookFactory.create(in);
             
             boolean use1904 = false;
-            if (wb instanceof XSSFWorkbook) {
-                use1904 = ((XSSFWorkbook) wb).isDate1904();
+            if (wb instanceof XSSFWorkbook workbook) {
+                use1904 = workbook.isDate1904();
             }
             Sheet sheet = wb.getNumberOfSheets() > 0 ? wb.getSheetAt(0) : null;
             if (sheet == null) return null;
@@ -208,11 +208,11 @@ public class fecha_firmas {
 
         // 2) Patrones habituales
         List<DateTimeFormatter> patrones = Arrays.asList(
-            DateTimeFormatter.ofPattern("dd/MM/yyyy", new Locale("es", "ES")),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", new Locale("es", "ES")),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss", new Locale("es", "ES")),
-            DateTimeFormatter.ofPattern("dd-MM-yyyy", new Locale("es", "ES")),
-            DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", new Locale("es", "ES")),
+            DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.of("es", "ES")),
+            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", Locale.of("es", "ES")),
+            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss", Locale.of("es", "ES")),
+            DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.of("es", "ES")),
+            DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.of("es", "ES")),
             DateTimeFormatter.ofPattern("yyyy-MM-dd"),
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
             DateTimeFormatter.ofPattern("dd.MM.yyyy"),

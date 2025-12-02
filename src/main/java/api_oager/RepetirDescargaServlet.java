@@ -40,9 +40,8 @@ public class RepetirDescargaServlet extends HttpServlet {
         String token = api_llama.gettokken();
 
         // Construye el payload JSON
-        String json = String.format(
-          "{ \"Codigo\": %d, \"Ejercicio\": %d, \"Entidad\": 3, \"TipoDeuda\": %d, \"TipoFacturacionContabilidad\": %d }",
-          codigo, ejercicio, tipoDeuda, facturacion
+        String json = "{ \"Codigo\": %d, \"Ejercicio\": %d, \"Entidad\": 3, \"TipoDeuda\": %d, \"TipoFacturacionContabilidad\": %d }".formatted(
+            codigo, ejercicio, tipoDeuda, facturacion
         );
         RequestBody body = RequestBody.create(
             json,
