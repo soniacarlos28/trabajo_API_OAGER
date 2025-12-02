@@ -1,0 +1,13 @@
+<%@ page language="java" import="javax.servlet.http.*,javax.servlet.*" %>
+<%
+    // Comprueba si ya hay usuario autenticado en sesión
+    String user = (String) session.getAttribute("user");
+   //String user ="carlos";
+    if (user == null) {
+        // No autenticado: redirige y corta la ejecución de la página actual
+        response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+        return;
+    }
+    // Si quieres, puedes exponer el usuario como atributo de petición
+    request.setAttribute("currentUser", user);
+%>

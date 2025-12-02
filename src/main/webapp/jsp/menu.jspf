@@ -1,0 +1,15 @@
+<%@ page import="java.sql.*" %>
+<%@ include file="conn_oracle.jsp" %>
+<%
+    String currentMenuPage = request.getRequestURI();
+%>
+
+ <link rel="stylesheet" type="text/css" href="../css/style.css">
+<div class="sidebar">
+    <a href="index.jsp" title="Inicio" class="home-icon <%= currentMenuPage.endsWith("index.jsp") ? "active" : "" %>">&#127968; FICHEROS DE INGRESOS OAGER </a>    
+    <a href="comprueba_ficheros.jsp" class="<%= currentMenuPage.contains("comprueba_ficheros") ? "active" : "" %>">Ficheros sin descargar</a>
+    <a href="repetir_descarga.jsp" class="<%= currentMenuPage.contains("repetir_descarga") ? "active" : "" %>">Repetir descarga Fichero</a>
+    <a href="consulta_descargas.jsp" class="<%= currentMenuPage.contains("consulta_descargas") ? "active" : "" %>">Consultar Descargas</a>
+    <a href="listado_ficheros.jsp" class="<%= currentMenuPage.contains("listado_ficheros") ? "active" : "" %>">Listado Ficheros</a>
+  
+</div>
