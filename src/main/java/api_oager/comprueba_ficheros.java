@@ -13,7 +13,7 @@ public class comprueba_ficheros {
 
 	private static final String DB_URL = """;
     private static final String DB_USER = "RRHH";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_PASSWORD = "a";
 	
 	  private static final String URL_LOGIN_REAL =
 	            "https://www.oager.com/ApiRest/api/Login";
