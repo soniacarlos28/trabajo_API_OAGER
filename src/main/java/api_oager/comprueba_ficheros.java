@@ -11,9 +11,9 @@ import java.util.Objects;
 
 public class comprueba_ficheros {
 
-	private static final String DB_URL = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST= oraprod-scan)(PORT=1521))(LOAD_BALANCE=yes)(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME= PROD)))";
+	private static final String DB_URL = """;
     private static final String DB_USER = "RRHH";
-    private static final String DB_PASSWORD = "Y3pEt78!fH";
+    private static final String DB_PASSWORD = "";
 	
 	  private static final String URL_LOGIN_REAL =
 	            "https://www.oager.com/ApiRest/api/Login";
