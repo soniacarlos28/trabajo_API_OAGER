@@ -53,7 +53,7 @@ public class comprueba_ficheros {
 	     * Devuelve el JSONArray para ser procesado.
 	     */
 	    private static JSONArray fetchDatosContabilidad(String token, String ejercicio) {
-	        String url = String.format(URL_DATOS_CONTABILIDAD, Objects.requireNonNull(ejercicio, "Ejercicio nulo"));
+	        String url = URL_DATOS_CONTABILIDAD.formatted(Objects.requireNonNull(ejercicio, "Ejercicio nulo"));
 	        HttpResponse<String> resp = Unirest.post(url)
 	                .header("Authorization", "Bearer " + Objects.requireNonNull(token, "Token nulo"))
 	                .header("Content-Type", "text/plain")
@@ -146,7 +146,7 @@ public class comprueba_ficheros {
 	            conn.setAutoCommit(prevAuto);
 	        }
 
-	        String resumen = String.format("Ejercicio %s -> Insertados: %d, Ya existentes: %d", ejercicio, insertados, yaExistentes);
+	        String resumen = "Ejercicio %s -> Insertados: %d, Ya existentes: %d".formatted(ejercicio, insertados, yaExistentes);
 	        logger.log("[descargarYcompruebaEnBD] Fin. " + resumen);
 	        
 	        return resumen;
